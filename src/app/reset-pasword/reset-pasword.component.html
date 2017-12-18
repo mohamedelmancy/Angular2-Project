@@ -1,0 +1,76 @@
+<div class="container well">
+  <div class="row">
+    <div class="col-xs-12">
+      <h2> Reset Password </h2>
+      <p class="resP">
+        To Reset Your Password you have to enter your email and click proceed in the comming modal , then you will receive a link in the entered email just click it to get a new Password.
+      </p>
+      <button data-target="#mymodalreset" data-toggle="modal" class="btn btn-primary btn-lg resB"  [class.btn-success]="mouseOvered" (mouseout)="mouseOvered=false" (mouseover)="mouseOvered=true" >Ok Go</button>         
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="mymodalreset"   role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal">&times;</button>
+      <h3>E-mail Confirm</h3>
+      </div>
+       <div class="modal-body">
+        <form (ngSubmit)="onSub(resetForm.value)" #resetForm="ngForm">
+            <div class="form-group email2 has-feedback" >
+                <label for="remail" class="control-label">E-mail Address</label>
+                <div class="input-group">
+                <span class="input-group-addon">@</span>
+                <input type="text" placeholder="Email" id="remail" #emailInput2="ngModel" name="remail" required ngModel  class="form-control"  pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" />
+              </div>
+              <div class="alert alert-danger" *ngIf="emailInput2.errors && (emailInput2.dirty || emailInput2.touched)" >
+                  <span [hidden]="!emailInput2.errors.required" >Email is Required</span>
+                <span [hidden]="!emailInput2.errors.pattern" >Please Enter a Valid Email</span>
+                </div>
+              </div>
+        <input type="submit" [disabled]="!resetForm.form.valid" data-target="#mymodalreset222" data-toggle="modal" class="btn btn-default btn-block proceed" name="submit" value="Proceed">
+        </form>
+      </div>
+       <div class="modal-footer">
+       <button type="button"  data-dismiss="modal" class="btn btn-error lock">Close</button>
+
+      </div>
+
+      </div>
+    </div>
+  </div> 
+
+<div class="modal fade" id="mymodalreset222"   role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal">&times;</button>
+      <h3>New Password</h3>
+      </div>
+       <div class="modal-body">
+          <form (ngSubmit)="onSubmition(personForm2.value)" #personForm2="ngForm">            
+          <div class="form-group">
+          <label for="pass1">New Password</label>
+             <input type="password" class="form-control" name="pass1" id="pass1" ngModel minlength="6" maxlength="20" #passInput="ngModel">
+             <div class="alert alert-danger" *ngIf="passInput.errors && (passInput.dirty || passInput.touched)" >
+                <span>Password must contain 6–20 characters</span>
+              </div>
+        </div>
+        <div class="form-group">
+            <label for="pass2">Repeat Password</label>
+            <input type="password" class="form-control" id="pass2" ngModel name="pass2"  #passInput2="ngModel" > 
+            <div class="alert alert-danger" *ngIf="passInput.value != passInput2.value  && (passInput2.dirty || passInput2.touched)" >
+                <span>Two Passwords not the Same</span>
+              </div>
+        </div>   
+        <input type="submit" [disabled]="!personForm2.form.valid" class="btn btn-default btn-block proceed" name="submit" value="Proceed">
+      </form>
+       <div class="modal-footer">
+       <button type="button"  data-dismiss="modal" class="btn btn-error lock">Close</button>
+  
+      </div>
+  
+      </div>
+    </div>
+  </div>     

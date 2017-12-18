@@ -1,0 +1,53 @@
+.btn-block
+{
+    font-size: 25px;
+    font-weight: bold;
+    background-color: #8bcae7;
+    
+    color: blue;
+    width: 600px;
+    height: 50px;
+}
+.btn-default:hover {
+    background-color: #42bff5;
+    border-color: #09091f;
+}
+.modal-header
+{
+    border-bottom: 1px solid #b5b1b1;
+}
+.modal-footer
+{
+    border-top: 1px solid #b5b1b1;
+}
+.lock:hover, .lock:focus, .lock.focus {
+    color: black;
+    text-decoration: none;
+    background-color: #c48787   ;
+}
+.modal-content
+{
+    background-color: #CFE8E5;
+}
+.modal-content h3
+{
+    text-align: center;
+}
+.resP
+{
+    font-size: 20px;
+    margin: 40px auto;
+}
+.resB
+{
+    margin: 15px auto;
+    width: 140px;
+    height: 55px;
+    font-size: 20px;
+    text-align: center;
+}
+h2
+{
+    text-align: center;
+    margin: 35px;
+}

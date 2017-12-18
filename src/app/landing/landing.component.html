@@ -1,0 +1,110 @@
+<div class="container text-center" >
+      <div class="row">
+        <div class="header">
+        <div class="col-xs-12">
+           <h1 class="pp  wow flip" data-wow-duration="7s" id="content" >PPReQuests</h1>    
+           <img src="./assets/pp.jpg" class="ppimg" >
+           <div class="signing">
+                                                                         
+                    <a data-target="#mymodallogin" data-toggle="modal" class="btn btn-default btn-block">Log in</a>
+                          <a  data-target="#mymodalregister" data-toggle="modal"   class="btn btn-default btn-block">Sign up</a> 
+                     
+                       <div class="modal fade" id="mymodallogin"  role="dialog">
+                               <div class="modal-dialog">
+                                 <div class="modal-content">
+                                 <div class="modal-header">
+                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
+                             <h3>Login</h3>
+                          
+                                 </div>
+                                  <div class="modal-body" style="text-align: left">
+                                      <a  class="btn btn-primary btn-lg mylogin"><i class="fa fa-facebook-square sora" aria-hidden="true"></i> Login With Facebook</a>
+                                    <form  (ngSubmit)="check(personForm.value)" #personForm="ngForm" id="frmlog">                                          
+                                        <div class="form-group email2 has-feedback" >
+                                            <label for="myemail">E-mail Address</label>
+                                            <div class="input-group">
+                                            <span class="input-group-addon">@</span>
+                                            <input type="email" placeholder="E-mail" id="myemail" name="myemail" ngModel  class="form-control"/>
+                                            </div>
+                                            <span class="form-control-feedback email_span2" aria-hidden="true">
+                                              <span id="em" class="sr-only">Your email</span>
+                                            </span>
+                                          </div>
+                                       <label for="Pass">Password</label>
+                                      <input type="password"  ngModel id="Pass" name="Password" class="form-control" />
+                                      <input type="submit" [disabled]="!personForm.form.valid" name="submit" class="btn btn-success loo"  value="Login" />
+                                  </form>
+                                     <a [routerLink]='["/resetPas"]' (click)="res()" > Reset Password?</a>
+            
+                                 </div>
+                                  <div class="modal-footer">
+                                  <button type="button"  data-dismiss="modal" class="btn btn-error lock">Close</button>
+                                 </div>
+                        
+                                 </div>
+                               </div>
+                             </div>
+                                 
+                        <div class="modal fade" id="mymodalregister"   role="dialog">
+                             <div class="modal-dialog">
+                                     <div class="modal-content">
+                                     <div class="modal-header">
+                                     <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                     <h3>Sign Up</h3>
+                                </div>
+                              <div class="modal-body" style="text-align: left">
+                                  <form  (ngSubmit)="setSubmit(logForm.value)" #logForm="ngForm">
+                                          <div class="form-group">
+                                            <label for="Fname">Full Name</label>
+                                            <input type="text" class="form-control" #nameInput="ngModel" id="Fname" required minlength="5" name="Fname" ngModel placeholder="Full Name" />
+                                            <div class="alert alert-danger" *ngIf="nameInput.errors && (nameInput.dirty || nameInput.touched)" >
+                                              <span [hidden]="!nameInput.errors.required" >Name is Required</span>
+                                              <span [hidden]="!nameInput.errors.minlength" >Name Must more than 4 characters</span>
+                                            </div>
+                                          </div>
+                                          <div class="form-group">
+                                                <label for="Uname">User Name</label>
+                                                <input type="text" class="form-control" id="Uname" #name2Input="ngModel" name="Uname" required minlength="5" ngModel placeholder="User-name" />
+                                                <div class="alert alert-danger" *ngIf="name2Input.errors && (name2Input.dirty || name2Input.touched)" >
+                                                    <span [hidden]="!name2Input.errors.required" >User name is Required</span>
+                                                    <span [hidden]="!name2Input.errors.minlength" >User name Must more than 4 characters</span>
+                                                  </div>
+                                              </div>
+                                            <div class="form-group email2 has-feedback" >
+                                                <label for="logemail" class="control-label">E-mail Address</label>
+                                                <div class="input-group">
+                                                <span class="input-group-addon">@</span>
+                                                <input type="text" placeholder="Email" id="logemail" #emailInput="ngModel" name="logemail" required ngModel  class="form-control"  pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" />
+                                              </div>
+                                              <div class="alert alert-danger" *ngIf="emailInput.errors && (emailInput.dirty || emailInput.touched)" >
+                                                  <span [hidden]="!emailInput.errors.required" >Email is Required</span>
+                                                <span [hidden]="!emailInput.errors.pattern" >Please Enter a Valid Email</span>
+                                                </div>
+                                              </div>
+                                              <div class="form-group">
+                                                <label for="logPass">Password</label>
+                                                <input type="password" class="form-control"   id="logPass" name="logPass" ngModel placeholder="Password">
+                                              </div>
+                                             
+                                                <label for="logad">Admin?</label>
+                                                <input type="checkbox"  id="logad" name="logad" ngModel >
+                                          
+                                              <input type="submit" [disabled]="!logForm.form.valid" class="btn btn-primary"  value="Register" />
+                                      </form>
+                                     </div>
+                                      <div class="modal-footer">
+                                      <button type="button"  data-dismiss="modal" class="btn btn-error lock">Close</button>
+                            
+                                     </div>
+                            
+                                     </div>
+                                   </div>
+                                 </div>           
+               </div>       
+       </div>   <!--container      -->        
+</div>  <!--header   --> 
+</div>
+</div>
+<div class="footer">
+   <p>&copy; PortaPeople 2017</p>    
+</div>
